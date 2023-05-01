@@ -22,6 +22,7 @@ declare global {
 function App() {
     const dispatch = useAppDispatch();
     const telegram = useAppSelector((state) => state.telegram);
+    console.log(window.Telegram.WebApp);
     console.log(telegram);
     useEffect(() => {
         if (
