@@ -1,15 +1,15 @@
 import { Telegraf } from "telegraf";
 import { message } from "telegraf/filters";
 import express from "express";
-
+const TOKEN = "6091909374:AAEiXpzArjBmParjM3m_Y2b8FPDqTZ49FzY";
 const bot = new Telegraf(TOKEN);
 const app = express();
-const web_link = "http://127.0.0.1:5173";
+const web_link = "https://master--beamish-sorbet-e62585.netlify.app/";
 
 bot.start((ctx) =>
     ctx.reply("Welcome :)))))", {
         reply_markup: {
-            keyboard: [[{ text: "web app", web_app: { url: web_link } }]],
+            keyboard: [[{ text: "My App", web_app: { url: web_link } }]],
         },
     })
 );
