@@ -1,8 +1,9 @@
 import { Telegraf } from "telegraf";
 import { message } from "telegraf/filters";
 import express from "express";
-const TOKEN = "6091909374:AAEiXpzArjBmParjM3m_Y2b8FPDqTZ49FzY";
-const bot = new Telegraf(TOKEN);
+import dotenv from "dotenv";
+dotenv.config();
+const bot = new Telegraf(process.env.TOKEN);
 const app = express();
 const web_link = "https://master--beamish-sorbet-e62585.netlify.app/";
 
