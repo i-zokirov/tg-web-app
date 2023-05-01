@@ -3,7 +3,7 @@ import { User, WebAppChat } from "../../../types";
 
 interface TelegramState {
     user_data: User | null;
-    auth_token: string | null;
+    auth_data: string | null;
     chat: WebAppChat | undefined;
     query_id?: string;
     chat_type?: "sender" | "private" | "group" | "supergroup" | "channel";
@@ -14,7 +14,7 @@ interface TelegramState {
 
 const initialState: TelegramState = {
     user_data: null,
-    auth_token: null,
+    auth_data: null,
     chat: undefined,
 };
 
@@ -26,7 +26,7 @@ const telegramSlice = createSlice({
             state,
             action: PayloadAction<{
                 user: User;
-                token: string;
+                auth_data: string;
                 chat: WebAppChat | undefined;
                 query_id?: string;
                 chat_type?:
@@ -41,7 +41,7 @@ const telegramSlice = createSlice({
             }>
         ) {
             state.user_data = action.payload.user;
-            state.auth_token = action.payload.token;
+            state.auth_data = action.payload.auth_data;
             state.chat = action.payload.chat;
             state.query_id = action.payload.query_id;
             state.chat_type = action.payload.chat_type;

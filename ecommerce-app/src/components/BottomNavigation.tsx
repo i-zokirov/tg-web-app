@@ -16,7 +16,14 @@ const BottomNav = () => {
     };
 
     return (
-        <Box sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}>
+        <Box
+            sx={{
+                position: "fixed",
+                bottom: 0,
+                left: 0,
+                right: 0,
+            }}
+        >
             <BottomNavigation showLabels value={value} onChange={handleChange}>
                 <BottomNavigationAction
                     label="Cart"

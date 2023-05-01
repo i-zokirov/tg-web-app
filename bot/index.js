@@ -1,4 +1,4 @@
-import { Telegraf } from "telegraf";
+import { Telegraf, MenuButton } from "telegraf";
 import { message } from "telegraf/filters";
 import express from "express";
 import dotenv from "dotenv";
@@ -7,13 +7,7 @@ const bot = new Telegraf(process.env.TOKEN);
 const app = express();
 const web_link = "https://master--beamish-sorbet-e62585.netlify.app/";
 
-bot.start((ctx) =>
-    ctx.reply("Welcome :)))))", {
-        reply_markup: {
-            keyboard: [[{ text: "My App", web_app: { url: web_link } }]],
-        },
-    })
-);
+bot.start((ctx) => ctx.reply("Welcome :)))))"));
 
 bot.command("quit", async (ctx) => {
     // Explicit usage

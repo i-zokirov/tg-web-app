@@ -9,13 +9,20 @@ import Typography from "@mui/material/Typography";
 import { Product } from "../types";
 import { Link as RouterLink } from "react-router-dom";
 import RatingStars from "./RatingStars";
-
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { useAppDispatch } from "../redux/hooks";
+import { addToCart } from "../redux/features/cart/cartSlice";
 interface ProductCardProps {
     product: Product;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     const { name, rating, image, id, numReviews, price } = product;
+
+    const dispatch = useAppDispatch();
+    const handleAddToCart = () => {
+        dispatch(addToCart(product));
+    };
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardMedia
@@ -37,8 +44,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 </Typography>
             </CardContent>
             <CardActions>
+                <Button
+                    size="small"
+                    variant="outlined"
+                    startIcon={<ShoppingCartOutlinedIcon />}
+                    onClick={handleAddToCart}
+                >
+                    Add
+                </Button>
                 <Button size="small">
-                    <Link to={`/products/${id}`} component={RouterLink}>
+                    <Link
+                        to={`/products/${id}`}
+                        underline="none"
+                        component={RouterLink}
+                    >
                         Read More
                     </Link>
                 </Button>

@@ -4,7 +4,7 @@ import products from "../dummy";
 
 const Home = () => {
     return (
-        <Container style={{ marginTop: "15px" }}>
+        <Container style={{ marginTop: "15px", marginBottom: "10vh" }}>
             <ProductList products={products} />
         </Container>
     );
