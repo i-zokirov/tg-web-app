@@ -26,6 +26,7 @@ const initialState: CartState = {
                 price: 89.99,
                 countInStock: 10,
                 rating: 1.5,
+                numReviews: 12,
             },
             quantity: 1,
         },
