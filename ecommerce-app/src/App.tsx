@@ -22,17 +22,14 @@ declare global {
 function App() {
     const dispatch = useAppDispatch();
     const telegram = useAppSelector((state) => state.telegram);
-    console.log(window.Telegram.WebApp);
     console.log(telegram);
     useEffect(() => {
-        if (
-            window.Telegram &&
-            window.Telegram.WebApp &&
-            window.Telegram.WebApp.initDataUnsafe.user
-        ) {
+        console.log(window.Telegram.WebApp);
+
+        if (window.Telegram && window.Telegram.WebApp) {
             dispatch(
                 setUser({
-                    user: window.Telegram.WebApp.initDataUnsafe.user,
+                    user: window.Telegram.WebApp.initDataUnsafe.user!,
                     token: window.Telegram.WebApp.initData,
                     chat: window.Telegram.WebApp.initDataUnsafe.chat,
                     query_id: window.Telegram.WebApp.initDataUnsafe.query_id,
