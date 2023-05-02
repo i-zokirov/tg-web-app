@@ -12,6 +12,7 @@ import { useAppDispatch, useAppSelector } from "./redux/hooks";
 import { setUser } from "./redux/features/telegram/telegramSlice";
 import ShippingAddress from "./pages/ShippingAddress";
 import Checkout from "./pages/Checkout";
+import SingleProduct from "./pages/SingleProduct";
 
 declare global {
     interface Window {
@@ -53,6 +54,10 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/home" element={<Home />} />
+                        <Route
+                            path="/products/:productId"
+                            element={<SingleProduct />}
+                        />
                         <Route path="/cart" element={<Cart />} />
                         <Route path="/profile" element={<Profile />} />
                         <Route

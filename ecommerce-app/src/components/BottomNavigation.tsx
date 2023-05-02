@@ -6,10 +6,13 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { useLocation, useNavigate } from "react-router-dom";
+
 const BottomNav = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const [value, setValue] = React.useState(location.pathname.split("/")[1]);
+    const [value, setValue] = React.useState(
+        location.pathname === "/" ? "home" : location.pathname.split("/")[1]
+    );
     const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
         navigate(`/${newValue}`);
